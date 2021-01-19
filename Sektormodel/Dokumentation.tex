@@ -1,0 +1,117 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+
+\begin{document}
+
+
+\title{Dokumentation der Arbeit}
+\author{Vassilios Marakis}
+\maketitle
+
+
+\section{Physikalische Voraussetzungen}
+
+\subsection{Lorentztransformation}
+
+
+\subsection{Metriken der ART}
+\section{Sektormodelle}
+
+Die erste Information zu diesem Abschnitt erhalten wir aus aus dem Papern: 
+
+\subsubsection*{Sektormodelle - Ein Werkzeugkasten zur Vermittlung der Allgemeinen Relativitätstheorie.}
+
+\begin{itemize}
+\item[I.]	Gekrümmte Räume und Raumzeit  I
+\begin{itemize}
+\item https://www.tempolimit-lichtgeschwindigkeit.de/sectormodels1/sectormodels1.html
+\end{itemize}
+\item[II.]	Geodäten im Raum
+\begin{itemize}
+\item https://www.tempolimit-lichtgeschwindigkeit.de/sectormodels2/sectormodels2.html
+\end{itemize}
+\item[III.]	Geodäten in der Raumzeit
+\begin{itemize}
+\item https://www.tempolimit-lichtgeschwindigkeit.de/sectormodels3/sectormodels3.html
+\end{itemize}
+\end{itemize}
+
+\subsection{Berechnung von Kantenlängen}
+
+Für die Berechnung von Kantenlängen eines Sektors gibt es zwei Herangehensweisen. Für beide sei die Metrik $g_{\mu\nu}$ für ein zugrunde liegendes physikalisches System bekannt. Besitzt diese Metrik nur Diagonalelemente kann sie vereinfachter beschrieben werden zu 
+
+\begin{equation}
+ds^2=\sum_{\mu} g^{\mu\mu} \cdot g_{\mu\mu} \; {dx^{\mu}}\;^2
+\end{equation}
+
+Für das Linienelement gilt hier also differentiell die Summation des Weges entlang der Koordinatenlinien. 
+\subsubsection{Approximation entlang der Koordinatenlinie}
+Wollen wir nun approximativ eine Koordinatenlinie berechnen so können wir für ein $y=x^j\in \{ x^\mu : \mu \}$ rechnen 
+\begin{equation}
+\Delta s = \int_{y_0}^{y_1} \sqrt{ g^{jj}\cdot g_{jj} } dy
+\end{equation}
+\subsubsection{Geodäten}
+Nun ist der schnellste Weg nicht immer entlang einer Koordinatenlinie zu finden, sodass bei der Konstruktion von Sektoren die Länge der sog. Geodäten die Kantenlänge besser beschreibt. Im Rahmen der Physik, kann dieses Problem als Variationsproblem gesehen werden. Gesucht ist ein parametrisierter Weg $s(t)$, welcher das Wegintegral zwischen den Punkten $s_0=s(t_0)$ und $s_1=s(t_1)$ 
+\begin{equation}
+F[s]= \int_{s_0}^{s_1} ds =\int_{t_0}^{t_1} \|\frac{d}{dt}s(t)\|dt
+\end{equation}
+minimiert. Dies kann im euklidischen Raum durch die Metrik $ds$ ausgedrückt werden zu 
+\begin{equation}
+F[s]=\int_{t_0}^{t_1} \sqrt{ \sum_{\mu} g^{\mu\mu} \cdot g_{\mu\mu} \;} \frac{dx^{\mu}}{dt}dt
+\end{equation}
+
+Nach Variationsrechnung wird dann der Integrand genau dann minimal, wenn die Euler-Lagrange Gleichungen erfüllt sind für alle partizipierenden Koordinaten. 
+\subsubsection*{Euklidische Kugeloberfläche}
+Für das einfache Beispiel einer Kugeloberfläche mit konstantem Radius $r=1$ ist
+\begin{equation}
+ds^2=d\theta^2+\sin{\theta}^2d\phi^2 
+\end{equation}
+
+Hier gilt es die Funktion 
+\begin{equation}
+G(\theta,\phi,\partial_t\theta,\partial_t\phi)=\partial_t\theta^2+\sin{\theta}^2\partial_t\phi^2
+\end{equation}
+zu minimieren. Wir können die Funktion quadrieren, da die Minima die gleiche Funktionen liefern. Nun stellen wir die Euler-Lagrange Gleichungen auf 
+\begin{eqnarray}
+G_\phi-\frac{\partial}{\partial t}G_{\partial_t \phi}=0 \\
+G_\theta-\frac{\partial}{\partial t}G_{\partial_t \theta}=0
+\end{eqnarray}
+Die erste Gleichung liefert die Differentialgleichung
+\begin{equation}
+\partial_t(\sin{\theta}\;^2\cdot \partial_t \phi)=0
+\end{equation}
+während die zweite Gleichung 
+\begin{equation}
+2\sin{\theta}\cos{\theta}\cdot (\partial_t \phi)^2-\partial_t^2\theta=0
+\end{equation}
+ergibt. Es ist leicht zu sehen, dass Lösungen der Form $\partial_t \phi=0$ existieren. Diese sind gegeben durch die Konstanten $c_1,c_2,c_3$ als
+\begin{eqnarray}
+\phi(t)=c_1 //
+\theta(t)=c_3\cdot t +c_2
+\end{eqnarray}
+wobei sie durch die Integration, also Start/Endpunkt und Paramtetrisierung durch $t$ eindeutig sind. Dies bedeutet, dass Längengrade auf einer Kugel gleichzeitig auch Geodäten sind. Hier stimmen also die Sektorkanten überein. Für die Breitengrade ist dies leider nicht ganz richtig, da keine nicht triviale Lösung mit $\partial_t\theta=0$ existiert. Die Geodäte ist die Lösung der gekoppelten Differentialgleichungen
+
+Der Verallgemeinerte Ansatz in der Differentialgeometrie entspringt der Idee, dass die Geodäte entsprechend der inneren Geometrie eine Gerade ist, equivalent wie eine Gerade die kürzeste Verbindung zweier Punkte auf einer Ebene darstellt. Dazu gilt, dass die innere/kovariante Ableitung einer Geodäten gleich Null ist. Das Geschwindigkeitsfeld innerhalb der Geometrie verläuft parallel:
+
+\begin{eqnarray}
+\nabla_{\partial_t s}\partial_t s=0 \\
+\partial_t ^2 x^\mu +\Gamma_{\nu\lambda}^\mu \partial_t x^\nu \partial_t x^\lambda =0 
+\end{eqnarray} 
+
+Die Christoffelsymbole $\Gamma_{\nu\lambda}^\mu$ sind die Faktoren für den Paralleltransport der Vektorkomponente $x^\mu$ im Tangentialraum, welcher lokal durch die Einheitsvektoren von $x^\nu$ und $x^\lambda$ aufgespannt wird. Sie sind gegeben durch die Metrik mit
+\begin{equation}
+\Gamma_{\nu \lambda}^\mu = \sum_{\rho}\frac{g^{\mu \rho}}{2}(\partial_{\nu}g_{\lambda \rho}+\partial_{\lambda}g_{\nu \rho}-\partial_{\rho}g_{\nu \lambda}).
+\end{equation}
+
+Auch hier erhalten wir mit $r=1$ für die Oberfläche die Differentialgleichungen
+
+
+
+
+\section{Programmierung}
+
+\subsection{JScript}
+\subsection{AFrame}
+
+\end{document}
